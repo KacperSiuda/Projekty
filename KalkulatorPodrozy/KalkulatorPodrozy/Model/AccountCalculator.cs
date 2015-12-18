@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace KalkulatorPodrozy.Model
 {
-    public class  AccountCalculator
+    public class AccountCalculator
     {
+        public double Rate { get; set; }
         public double AmountOwned(double milesTraveled, double reimburseRate)
         {
             double amount = milesTraveled *= reimburseRate;

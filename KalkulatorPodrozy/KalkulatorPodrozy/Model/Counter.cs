@@ -8,7 +8,7 @@ namespace KalkulatorPodrozy.Model
 {
     public class Counter
     {
-        
+
         public int StartCounter { get; set; }
         public int FinalCounter { get; set; }
 

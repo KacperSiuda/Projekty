@@ -19,17 +19,25 @@ namespace KalkulatorPodrozy
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             counter = new Counter();
             account = new AccountCalculator();
         }
 
+        private void TakeVariable()
+        {
+            counter.StartCounter = (int)numericUpDown1.Value;
+            counter.FinalCounter = (int)numericUpDown2.Value;
+            account.Rate = Convert.ToDouble(textBox1.Text);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            counter.StartCounter = (int) numericUpDown1.Value;
-            counter.FinalCounter = (int) numericUpDown2.Value;
+            TakeVariable();
             if (counter.StartCounter <= counter.FinalCounter)
             {
-                label4.Text = account.AmountOwned(counter.MilesTraveled(counter.StartCounter, counter.FinalCounter), 0.55)
+                label4.Text = account.AmountOwned(counter.MilesTraveled(counter.StartCounter, counter.FinalCounter), account.Rate)
                     .
                     ToString(CultureInfo.InvariantCulture) + "zł";
             }
@@ -37,6 +45,13 @@ namespace KalkulatorPodrozy
             {
                 MessageBox.Show("Początkowy stan licznika musi być mniejszy niż końcowy", "Nie mogę obliczyć odległości");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TakeVariable();
+            MessageBox.Show(counter.MilesTraveled(counter.StartCounter, counter.FinalCounter) +
+                "km");
         }
     }
 }
