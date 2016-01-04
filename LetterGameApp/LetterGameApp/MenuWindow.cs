@@ -13,7 +13,12 @@ namespace LetterGameApp
 {
     public partial class MenuWindow : Form
     {
-        public PlayerStats player;
+        public PlayerStats player = new PlayerStats();
+        public string PlayerName()
+        {
+            
+            return player.PlayerName;
+        }
         public MenuWindow()
         {
             InitializeComponent();
@@ -21,13 +26,16 @@ namespace LetterGameApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            player = new PlayerStats();
             player.PlayerName = textBox1.Text;
 
+            this.InitializeNewWinodw();
+            
+        }
+        private void InitializeNewWinodw()
+        {
             Form1 gameWindow = new Form1();
             gameWindow.Show();
-
-
+            
         }
     }
 }

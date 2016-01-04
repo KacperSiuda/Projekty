@@ -25,7 +25,7 @@ namespace LetterGameApp.Models
             {
                 Correct++;
             }
-            Accuracy = (Correct/Total);
+            Accuracy = 100 * Correct/Total;
         }
     }
 }

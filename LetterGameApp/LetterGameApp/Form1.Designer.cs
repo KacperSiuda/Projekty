@@ -85,7 +85,7 @@
             // tootalLabel
             // 
             this.tootalLabel.Name = "tootalLabel";
-            this.tootalLabel.Size = new System.Drawing.Size(49, 17);
+            this.tootalLabel.Size = new System.Drawing.Size(48, 17);
             this.tootalLabel.Text = "Total : 0";
             // 
             // accuracyLabel
@@ -97,7 +97,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(431, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(432, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Hard Level:";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

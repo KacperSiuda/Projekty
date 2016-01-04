@@ -15,14 +15,12 @@ namespace LetterGameApp
     {
         Random random = new Random();
         PlayerStats stats = new PlayerStats();
-        
+        MenuWindow menuWindow = new MenuWindow();
 
         public Form1()
         {
             InitializeComponent();
             
-
-
         }
 
 
@@ -36,7 +34,8 @@ namespace LetterGameApp
                 listBox1.Items.Clear();
                 listBox1.Items.Add("End Game");
                 timer1.Stop();
-                MessageBox.Show(stats.PlayerName + stats.Correct,"Highscores");
+                stats.PlayerName = menuWindow.PlayerName();
+                MessageBox.Show("Gracz: "+stats.PlayerName + stats.Correct,"Highscores");
             }
         }
 
