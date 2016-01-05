@@ -14,11 +14,7 @@ namespace LetterGameApp
     public partial class MenuWindow : Form
     {
         public PlayerStats player = new PlayerStats();
-        public string PlayerName()
-        {
-            
-            return player.PlayerName;
-        }
+        
         public MenuWindow()
         {
             InitializeComponent();
@@ -33,8 +29,8 @@ namespace LetterGameApp
         }
         private void InitializeNewWinodw()
         {
-            Form1 gameWindow = new Form1();
-            gameWindow.Show();
+            var form2 = new Form1(this);
+            form2.ShowDialog();
             
         }
     }

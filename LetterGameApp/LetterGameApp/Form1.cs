@@ -15,16 +15,16 @@ namespace LetterGameApp
     {
         Random random = new Random();
         PlayerStats stats = new PlayerStats();
-        MenuWindow menuWindow = new MenuWindow();
+        private readonly MenuWindow _menuWindow;
 
-        public Form1()
+        public Form1(MenuWindow menuWindow)
         {
+            _menuWindow = menuWindow;
             InitializeComponent();
             
         }
 
-
-
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Add random letter into the listBox
@@ -34,8 +34,9 @@ namespace LetterGameApp
                 listBox1.Items.Clear();
                 listBox1.Items.Add("End Game");
                 timer1.Stop();
-                stats.PlayerName = menuWindow.PlayerName();
-                MessageBox.Show("Gracz: "+stats.PlayerName + stats.Correct,"Highscores");
+                stats.PlayerName = _menuWindow.player.PlayerName;
+                MessageBox.Show("Gracz: "+stats.PlayerName +" uzyskał "
+                    + stats.Correct +" punktów","Highscores");
             }
         }
 
