@@ -17,17 +17,14 @@ namespace ChartRacingSimulator.Models
 
         public bool Run()
         {
-            int move;
-            move = StartingPosition + MyRandom.Next(1, 4);
-            Location = move;
-            if (Location >= RacetrackLenght)
+            if (MyPictureBox != null)
             {
+                MyPictureBox.Left += MyRandom.Next(1, 4);
                 return true;
             }
             else
             {
                 return false;
-
             }
         }
 
