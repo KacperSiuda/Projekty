@@ -13,48 +13,69 @@ namespace ChartRacingSimulator
 {
     public partial class Form1 : Form
     {
+        public Greyhound[] greyhound = new Greyhound[4];
+        private Guy[] guy;
+        Random Randomizer = new Random();
+
         public Form1()
         {
             InitializeComponent();
+            CreateObjects();
 
         }
+        
 
-        Greyhound[] greyhound = new Greyhound[4];
-        Guy[] guy = new Guy[3];
-
-        private void ToggleChart(int index,PictureBox pictureBox)
+        private void CreateObjects()
         {
-            
-            if (greyhound[index] == null)
+            greyhound[0] = new Greyhound()
             {
-                greyhound[index] = new Greyhound();
-                greyhound[index].MyPictureBox = pictureBox;
-            }
-            else
-            {
-                greyhound[index] = null;
-            }
+                MyPictureBox = pictureBox2,
+                StartingPosition = pictureBox2.Left,
+                RacetrackLenght = raceTrackPictureBox.Width - pictureBox2.Width,
+                MyRandom = Randomizer
+                
 
+            };
+            greyhound[1] = new Greyhound()
+            {
+                MyPictureBox = pictureBox3,
+                StartingPosition = pictureBox3.Left,
+                RacetrackLenght = raceTrackPictureBox.Width - pictureBox3.Width,
+                MyRandom = Randomizer
+
+
+            };
+            greyhound[2] = new Greyhound()
+            {
+                MyPictureBox = pictureBox4,
+                StartingPosition = pictureBox4.Left,
+                RacetrackLenght = raceTrackPictureBox.Width - pictureBox4.Width,
+                MyRandom = Randomizer
+
+
+            };
+            greyhound[3] = new Greyhound()
+            {
+                MyPictureBox = pictureBox5,
+                StartingPosition = pictureBox5.Left,
+                RacetrackLenght = raceTrackPictureBox.Width - pictureBox5.Width,
+                MyRandom = Randomizer
+
+
+            };
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ToggleChart(0, pictureBox2);
-            ToggleChart(1, pictureBox3);
-            ToggleChart(2, pictureBox4);
-            ToggleChart(3, pictureBox5);
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = 1;
-            for(int i=0; i <= 3; i++)
+            for (int i = 0; i <= 3; i++)
             {
-                if(greyhound != null)
-                {
-                    greyhound[i].Run();
-                }
+                greyhound[i].Run();
             }
         }
     }

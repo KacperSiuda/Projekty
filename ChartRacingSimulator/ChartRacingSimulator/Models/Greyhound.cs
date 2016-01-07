@@ -17,9 +17,11 @@ namespace ChartRacingSimulator.Models
 
         public bool Run()
         {
-            if (MyPictureBox != null)
+            if (Location <= RacetrackLenght)
             {
-                MyPictureBox.Left += MyRandom.Next(1, 4);
+                
+                int distance = MyRandom.Next(1, 4);
+                Location = MyPictureBox.Left += distance;
                 return true;
             }
             else
