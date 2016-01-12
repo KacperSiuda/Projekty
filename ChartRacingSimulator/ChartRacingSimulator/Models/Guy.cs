@@ -15,26 +15,40 @@ namespace ChartRacingSimulator.Models
         public int Cash;
 
         //GUI Components variable//
-        public RadioButton MyRadioButton;
-        public Label MyLabel;
+        public RadioButton MyRadioButton = null;
+        public Label MyLabel = null;
 
         public void UpdateLabels()
         {
-            MyLabel.Text = (Name + "obstawił");
-            MyRadioButton.Text = (Name + "ma" + Cash);
+            if (MyBet == null)
+            {
+                MyLabel.Text = (Name + " nie zawarł zakładu ");
+            }
+            else
+            {
+                MyLabel.Text = MyBet.GetDescription();
+            }
+
+            MyRadioButton.Text = (Name + " ma " + Cash);
 
         }
+
         public void ClearBet()
         {
             MyBet = null;
         }
+
         public bool PlaceBet(int Amount, int DogToWin)
         {
+            this.MyBet = new Bet();
+            UpdateLabels();
             if (Amount <= Cash)
             {
-                MyBet.Bettor = this;
+
+                Cash = Cash - Amount;
                 Amount = MyBet.Amount;
                 DogToWin = MyBet.Dog;
+                MyBet.Bettor = this;
                 return true;
 
             }
