@@ -20,15 +20,29 @@ namespace ChartRacingSimulator.Models
 
         public void UpdateLabels()
         {
+            MyLabel.Text = (Name + "obstawił");
+            MyRadioButton.Text = (Name + "ma" + Cash);
 
         }
         public void ClearBet()
         {
-
+            MyBet = null;
         }
         public bool PlaceBet(int Amount, int DogToWin)
         {
-            return false;
+            if (Amount <= Cash)
+            {
+                MyBet.Bettor = this;
+                Amount = MyBet.Amount;
+                DogToWin = MyBet.Dog;
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
         public void Collect(int Winner)
         {
