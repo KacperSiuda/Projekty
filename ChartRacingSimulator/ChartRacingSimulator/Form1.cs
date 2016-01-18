@@ -20,49 +20,38 @@ namespace ChartRacingSimulator
         public Form1()
         {
             InitializeComponent();
-            CreateObjectsGreyhounds();
-            CreateGuyObjects();
+            CreateObjects();
 
         }
-
-        private void CreateGuyObjects()
+        
+        private void CreateGuysObjects()
         {
             guy[0] = new Guy()
             {
-                Cash = 10,
+                Name = "Joe",
+                Cash = 70,
                 MyLabel = label6,
                 MyRadioButton = radioButton1,
-                Name = "Joe"
-            };
 
+            };
             guy[1] = new Guy()
             {
-                Cash = 10,
+                Name = "Bob",
+                Cash = 70,
                 MyLabel = label7,
                 MyRadioButton = radioButton2,
-                Name = "Bob"
-            };
 
-            guy[2] = new Guy()
-            {
-                Cash = 10,
-                MyLabel = label8,
-                MyRadioButton = radioButton3,
-                Name = "Tom"
-            };
-            
-        }
-
-
-        private void CreateObjectsGreyhounds()
+        private void CreateObjects()
         {
+
+
             greyhound[0] = new Greyhound()
             {
                 MyPictureBox = pictureBox2,
                 StartingPosition = pictureBox2.Left,
                 RacetrackLenght = raceTrackPictureBox.Width - pictureBox2.Width,
                 MyRandom = Randomizer
-
+                
 
             };
             greyhound[1] = new Greyhound()
@@ -97,7 +86,6 @@ namespace ChartRacingSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
             
         }
 
@@ -107,9 +95,7 @@ namespace ChartRacingSimulator
             for (int i = 0; i <= 3; i++)
             {
                 greyhound[i].Run();
-
             }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

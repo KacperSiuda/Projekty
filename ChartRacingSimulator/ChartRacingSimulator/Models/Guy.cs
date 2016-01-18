@@ -20,16 +20,8 @@ namespace ChartRacingSimulator.Models
 
         public void UpdateLabels()
         {
-            if (MyBet == null)
-            {
-                MyLabel.Text = (Name + " nie zawarł zakładu ");
-            }
-            else
-            {
-                MyLabel.Text = MyBet.GetDescription();
-            }
-
-            MyRadioButton.Text = (Name + " ma " + Cash);
+            MyLabel.Text = (Name + "obstawił");
+            MyRadioButton.Text = (Name + "ma" + Cash);
 
         }
 
@@ -40,8 +32,6 @@ namespace ChartRacingSimulator.Models
 
         public bool PlaceBet(int Amount, int DogToWin)
         {
-            this.MyBet = new Bet();
-            UpdateLabels();
             if (Amount <= Cash)
             {
 
